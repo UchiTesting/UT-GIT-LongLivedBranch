@@ -47,11 +47,12 @@ we can see the branches names align. However, it did checkout
 to feature1-v3 branch. Not ideal but that's not a big deal.
 
 ```bash
-$ git log --oneline -3
-0ffb62c (HEAD -> feature1-v3, origin/feature1-wip, origin/feature1-v3, feature1-wip) Add descriptive text about version 3
+$ git log --oneline -5
+74d0322 (HEAD -> feature1-v3, feature1-wip) Add additional CLI details to v3 description
+0ffb62c (origin/feature1-wip, origin/feature1-v3) Add descriptive text about version 3
 44bdc63 Create version 3 header
 210091a (origin/feature1-dev, feature1-dev) Merge pull request #3 from UchiTesting/feature1-v2
-
+64be63d (feature1-v2) Create version 2 header and small descriptive text.
 ```
 
 We can use the occasion to push the update befor checking back to the *feature1-wip* branch.
