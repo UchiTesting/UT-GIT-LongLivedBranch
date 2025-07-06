@@ -42,6 +42,8 @@ We now need to update out feature1-v3 branch to include those changes.
 There are several ways to get to that result but we prefer any method  
 that would avoid checking out the other branch.
 
+`git rebase feature1-wip feature1-v3`
+
 As you can see in the snippet bellow it worked well. On commit *0ffb62c *
 we can see the branches names align. However, it did checkout
 to feature1-v3 branch. Not ideal but that's not a big deal.
