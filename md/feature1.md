@@ -15,3 +15,5 @@ This is about a single developer working on a feature.
 This is some text about version 2. Nothing too special here.
 The point is basically I did not even switch branches, 
 I just kept working on the same branch.
+
+## Version 3
