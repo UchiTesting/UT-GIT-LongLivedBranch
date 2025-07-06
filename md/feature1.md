@@ -15,3 +15,46 @@ This is about a single developer working on a feature.
 This is some text about version 2. Nothing too special here.
 The point is basically I did not even switch branches, 
 I just kept working on the same branch.
+
+## Version 3
+
+This is some text about version 3. Nothing too special here neither.
+
+So far the process is 
+- working from *feature-wip* branch.
+- then when we believe it it relevant for a PR/MR 
+  we create a branch called *feature1-v{n}*
+  where `n` is the version of the branche.  
+  `git branch feature-v1` for instance.
+- then we push that branch  
+  `git push -u origin feature-v1`
+- and create a PR/MR from it.
+- When we merge it, we update the feature dev branch *feature1-dev*
+  the command is `git fetch origin feature1-dev:feature1-dev`
+- at this point both the *feature1-dev* and the *feature-wip* branches
+  are at the same point. However we also created easy to identify branches
+  that can be deleted in the MR/PR. The *wip* branch will remain 
+  and continue using it until the feature is complete.
+
+In the context of PR/MR 3 we had to make changes to validate it.
+We worked from feature1-wip branch.
+We now need to update out feature1-v3 branch to include those changes.
+There are several ways to get to that result but we prefer any method  
+that would avoid checking out the other branch.
+
+`git rebase feature1-wip feature1-v3`
+
+As you can see in the snippet bellow it worked well. On commit *0ffb62c *
+we can see the branches names align. However, it did checkout
+to feature1-v3 branch. Not ideal but that's not a big deal.
+
+```bash
+$ git log --oneline -5
+74d0322 (HEAD -> feature1-v3, feature1-wip) Add additional CLI details to v3 description
+0ffb62c (origin/feature1-wip, origin/feature1-v3) Add descriptive text about version 3
+44bdc63 Create version 3 header
+210091a (origin/feature1-dev, feature1-dev) Merge pull request #3 from UchiTesting/feature1-v2
+64be63d (feature1-v2) Create version 2 header and small descriptive text.
+```
+
+We can use the occasion to push the update before checking back to the *feature1-wip* branch.
