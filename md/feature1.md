@@ -55,4 +55,4 @@ $ git log --oneline -5
 64be63d (feature1-v2) Create version 2 header and small descriptive text.
 ```
 
-We can use the occasion to push the update befor checking back to the *feature1-wip* branch.
+We can use the occasion to push the update before checking back to the *feature1-wip* branch.
