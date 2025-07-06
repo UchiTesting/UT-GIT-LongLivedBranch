@@ -58,3 +58,53 @@ $ git log --oneline -5
 ```
 
 We can use the occasion to push the update before checking back to the *feature1-wip* branch.
+
+> Bonus:
+> 
+> We likely will delete version branches that got merged.  
+> This is done from the PR/MR interface.
+> However, if we want to delete the branch from the command line we can use:
+> `git remote prune origin` or `git fetch --prune origin`
+> The output differs but the result is the same.
+>
+> ```bash
+> $ git remote prune origin
+> Pruning origin
+> URL: https://github.com/UchiTesting/UT-GIT-LongLivedBranch.git
+>  * [pruned] origin/feature1-v1
+>  * [pruned] origin/feature1-v2
+> ```
+>
+> ```bash
+> $ git fetch --prune origin
+> From https://github.com/UchiTesting/UT-GIT-LongLivedBranch
+>  - [deleted]         (none)     -> origin/feature1-v3
+> ```
+>
+> This is a good practice to keep the remote repository clean 
+> and avoid confusion with old branches that are no longer relevant.
+> It helps to keep the repository tidy and makes it easier for team members
+> to read the graph. It also tells about how much is a WIP at current time.
+>
+> After the branches got pruned, it only removes references to remote branches.
+> The local branches remain intact.
+> To clean it we shall use this one-liner:
+>
+> `git branch -vv --merged | grep ': gone]' | awk '{print $1}' | xargs git branch -d`
+>
+> You can dry-run by removing the content from the last pipe (|) i.e. :
+> `git branch -vv --merged | grep ': gone]' | awk '{print $1}'`
+>
+> ```bash
+> $ git branch -vv --merged | grep ': gone]' | awk '{print $1}'
+> feature1-v1
+> feature1-v2
+> feature1-v3
+> ```
+> 
+> ```bash
+> $ git branch -vv --merged | grep ': gone]' | awk '{print $1}' | xargs git branch -d
+> Deleted branch feature1-v1 (was fc02764).
+> Deleted branch feature1-v2 (was 64be63d).
+> Deleted branch feature1-v3 (was d34627f).
+> ```
