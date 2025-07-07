@@ -108,3 +108,17 @@ We can use the occasion to push the update before checking back to the *feature1
 > Deleted branch feature1-v2 (was 64be63d).
 > Deleted branch feature1-v3 (was d34627f).
 > ```
+
+## Version 4
+
+This is our super elaborate version 4.
+It has more chars, more words, more sentences, more lines,
+more paragraphs, more everything than before!
+
+Juste have a look at it and you'll see it is what you always wanted.
+
+No more waiting, no more wondering, no more doubts.
+
+Version 4 is out now and it is the best version ever!
+
+30 days money back guarantee if you don't like it.
